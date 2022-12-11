@@ -1,17 +1,12 @@
-export const depositMoney = (amount) => {
-    return (dispatch) => {
-      dispatch({
-        type: "deposit",
-        payload: amount,
-      });
-    };
-  };
-  
-  export const withdrawMoney = (amount) => {
-      return (dispatch) => {
-          dispatch({
-            type: "withdraw",
-            payload: amount,
-          });
-        };
-  };
+const reducer = (state=0, action)=>{
+    if(action.type==='deposit'){
+        return state + action.payload
+    }
+    else if(action.type==='withdraw'){
+        return state - action.payload
+    }
+    else{
+        return state;
+    }
+}
+export default reducer
